@@ -87,6 +87,38 @@ body {
   height: auto;
   object-fit: contain;
 }
+    /* Calm romantic YES screen */
+.fullscreen-yes.calm {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #fff1f5, #ffe4ec);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Romantic text styling */
+.love-text {
+  font-size: 36px;
+  color: #b03060;
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 90%;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Soft fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
   </style>
 </head>
 
@@ -137,13 +169,18 @@ body {
     }
   }
 
-  function yesClick() {
-    document.body.innerHTML = `
-      <div class="fullscreen-yes">
-      I LOVE YOU SO MUCH💖
-      </div>/
-    `;
-  }
+ function yesClick() {
+  document.body.innerHTML = `
+    <div class="fullscreen-yes calm">
+      <div class="love-text">
+        Guess what?<br>
+        You’re stuck with me forever now 🤍<br><br>
+        In a world full of chaos,<br>
+        you are my calm, my always 💖
+      </div>
+    </div>
+  `;
+}
 </script>
 
 </body>
