@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Be My Valentine 💖</title>
+
+  <style>
+    html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #0b1c26;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+    h1 span {
+      color: #7CFC00;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+.yes {
+  background: #ff2f92;
+  color: white;
+
+  width: 260px;
+  height: 90px;
+
+  font-size: 36px;
+  border-radius: 999px;   /* makes it pill/boxy */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.3s ease;
+}
+
+/* Make buttons container stick lower */
+.buttons {
+  margin-top: auto;
+  margin-bottom: 40px;
+    }
+
+    .no {
+      background: gray;
+      color: white;
+    }
+    .fullscreen-yes {
+  position: fixed;
+  inset: 0;
+  background: #ff2f92;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  color: white;
+  z-index: 999;
+}
+  </style>
+</head>
+
+<body>
+
+  <img src="./meow.jpeg" alt="cute">
+
+  <div id="emoji" style="font-size:80px;">🥺</div>
+
+  <h1>Be My <span>Valentine</span></h1>
+  <p>Will you be my Valentine? 💖</p>
+
+  <div class="buttons">
+    <button class="yes" onclick="yesClick()">Yes</button>
+    <button class="no" onclick="noClick()">No</button>
+  </div>
+
+    <script>
+  const texts = [
+    "Wait… think again 😳",
+    "Are you REALLY sure?",
+    "Come on… just say yes 🥺",
+    "I’ll be sad forever 💔",
+    "Okay last try 😭"
+  ];
+
+  let index = 0
+  let scale = 1;
+
+  function noClick() {
+    const noBtn = document.querySelector(".no");
+    const yesBtn = document.querySelector(".yes");
+    const emoji = document.getElementById("emoji");
+
+    if (index < texts.length) {
+      noBtn.innerText = texts[index];
+      index++;
+
+      // grow YES every time
+    scale += 0.15;
+    yesBtn.style.transform = `scale(${scale})`;
+
+      emoji.innerText = "😭";
+    } else {
+      // after last message → hide NO
+      noBtn.style.display = "none";
+      emoji.innerText = "🥹";
+    }
+  }
+
+  function yesClick() {
+    document.body.innerHTML = `
+      <div class="fullscreen-yes">
+      I LOVE YOU SO MUCH💖
+      </div>/
+    `;
+  }
+</script>
+
+</body>
+</html>
